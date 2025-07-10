@@ -71,20 +71,93 @@
 
 /*========== Variables Dark theme ==========*/
 body.dark-theme {
-  /* HSL color mode */
---first-color-second: hsl(var(--hue-color), 30%, 8%);
---title-color: hsl(var(--hue-color), 8%, 95%);
---text-color: hsl(var(--hue-color), 8%, 45%);
---text-color-light: hsl(var(--hue-color), 8%, 75%);
---input-color: hsl(var(--hue-color), 29%, 16%);
---body-color: hsl(var(--hue-color), 28%, 12%);
---container-color: hsl(var(--hue-color), 29%, 16%);
---scroll-bar-color: hsl(var(--hue-color), 12%, 48%);
---scroll-thumb-color: hsl(var(--hue-color), 12%, 36%);
+  /* Beautiful dark theme color palette */
+  --first-color: #bb86fc; /* Light purple accent */
+  --first-color-second: #6200ee; /* Deep purple */
+  --first-color-alt: #985eff; /* Purple variant */
+  --first-color-lighter: rgba(187, 134, 252, 0.1); /* Light purple with transparency */
+  
+  --title-color: #f0f0f0; /* Softer white for titles - less harsh */
+  --text-color: #c5c5c5; /* Dimmer gray for body text - more comfortable */
+  --text-color-light: #a0a0a0; /* Softer gray for secondary text */
+  --input-color: #2d2d2d; /* Dark gray for inputs */
+  --body-color: #121212; /* Rich dark background */
+  --container-color: #1e1e1e; /* Slightly lighter container */
+  --scroll-bar-color: #3d3d3d; /* Dark scrollbar */
+  --scroll-thumb-color: #bb86fc; /* Purple scroll thumb */
+  
+  /* Enhanced section colors for dark mode */
+  --section-overlay: rgba(30, 30, 30, 0.95); /* Dark section overlay */
+  --section-blur: rgba(40, 40, 40, 0.8); /* Blurred section background */
+}
+
+/* Dark theme component enhancements */
+body.dark-theme .about__badge {
+  background: rgba(187, 134, 252, 0.15);
+  color: #bb86fc;
+  border: 1px solid rgba(187, 134, 252, 0.3);
+}
+
+body.dark-theme .skills__badge {
+  background: rgba(187, 134, 252, 0.12);
+  color: #c4a7ff;
+  border: 1px solid rgba(187, 134, 252, 0.25);
+}
+
+body.dark-theme .portfolio__badge {
+  background: rgba(187, 134, 252, 0.12);
+  color: #c4a7ff;
+  border: 1px solid rgba(187, 134, 252, 0.25);
+}
+
+/* Softer text colors for specific elements in dark mode */
+body.dark-theme .qualification__course-list li {
+  color: #b8b8b8; /* Softer gray for course list items */
+}
+
+body.dark-theme .qualification__subtitle {
+  color: #bb86fc; /* Purple accent for subtitles */
+}
+
+body.dark-theme .portfolio__description {
+  color: #b0b0b0; /* Comfortable gray for descriptions */
+}
+
+body.dark-theme .portfolio__date {
+  color: #bb86fc; /* Purple accent for dates */
+}
+
+body.dark-theme .section__subtitle {
+  color: #a8a8a8; /* Dimmer gray for section subtitles */
+}
+
+body.dark-theme .qualification__calendar {
+  color: #a8a8a8; /* Softer gray for calendar info */
+}
+
+body.dark-theme .button {
+  background: linear-gradient(135deg, #bb86fc, #985eff);
+  color: #121212;
+  font-weight: 600;
+}
+
+body.dark-theme .button:hover {
+  background: linear-gradient(135deg, #c4a7ff, #a56eff);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(187, 134, 252, 0.3);
+}
+
+body.dark-theme .nav__link:hover {
+  color: #bb86fc;
 }
 
 body {
-  transition: all 0.2s;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smooth transitions for theme switching */
+* {
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 /*========== Button Dark/Light ==========*/
@@ -99,10 +172,26 @@ body {
   color: var(--title-color);
   margin-right: var(--mb-1);
   cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
 }
 
 .change-theme:hover {
   color: var(--first-color);
+  background: var(--first-color-lighter);
+  transform: scale(1.1);
+}
+
+/* Enhanced dark theme toggle button */
+body.dark-theme .change-theme {
+  color: #bb86fc;
+}
+
+body.dark-theme .change-theme:hover {
+  background: rgba(187, 134, 252, 0.1);
+  color: #c4a7ff;
+  box-shadow: 0 4px 15px rgba(187, 134, 252, 0.2);
 }
 
 /*==================== BASE ====================*/
@@ -114,6 +203,7 @@ body {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 3rem;
 }
 
 body {
@@ -161,6 +251,20 @@ img {
 .section__title, 
 .section__subtitle {
   text-align: center;
+}
+
+/* Enhanced scroll-driven animations for sections */
+.section {
+  opacity: 0;
+  transform: translateY(60px) scale(0.95);
+  transition: none; /* Remove time-based transitions */
+  will-change: transform, opacity; /* Optimize for animations */
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: none; /* Remove time-based transitions */
 }
 
 /*==================== LAYOUT ====================*/
@@ -1161,4 +1265,530 @@ img {
   .contact__inputs {
       grid-template-columns: repeat(2, 1fr);
   }
+}
+
+/* Academic card style for education */
+.qualification__card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(80, 80, 120, 0.08);
+  padding: 2rem 2rem 1.5rem 2rem;
+  margin: 1.5rem 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #ececec;
+}
+
+.qualification__courses {
+  margin-top: 1.2rem;
+}
+
+.qualification__course-list {
+  columns: 2 200px;
+  -webkit-columns: 2 200px;
+  -moz-columns: 2 200px;
+  column-gap: 2rem;
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.2rem;
+  font-size: var(--normal-font-size);
+  color: var(--text-color);
+}
+
+.qualification__course-list li {
+  margin-bottom: 0.3rem;
+  list-style: disc inside;
+}
+
+.qualification__title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.qualification__subtitle {
+  font-size: 1rem;
+  color: var(--text-color-light);
+  margin-bottom: 0.2rem;
+}
+
+.qualification__calendar {
+  font-size: 0.95rem;
+  color: var(--first-color-alt);
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .qualification__card {
+    padding: 1rem 0.5rem;
+  }
+  .qualification__course-list {
+    columns: 1;
+  }
+}
+
+/* Portfolio card style */
+.portfolio__card-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.portfolio__card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(80, 80, 120, 0.08);
+  border: 1px solid #ececec;
+  max-width: 350px;
+  min-width: 260px;
+  padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.portfolio__card:hover {
+  box-shadow: 0 8px 32px rgba(80, 80, 120, 0.16);
+  transform: translateY(-4px) scale(1.025);
+}
+
+.portfolio__img {
+  width: 100%;
+  max-width: 220px;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(80, 80, 120, 0.06);
+}
+
+.portfolio__card-content {
+  width: 100%;
+  text-align: left;
+}
+
+.portfolio__title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.portfolio__description {
+  font-size: 0.98rem;
+  color: var(--text-color);
+  margin-bottom: 0.7rem;
+}
+
+.portfolio__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.portfolio__badge {
+  background: var(--first-color-lighter);
+  color: var(--first-color);
+  font-size: 0.85rem;
+  border-radius: 0.7rem;
+  padding: 0.2rem 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.2rem;
+}
+
+@media (max-width: 800px) {
+  .portfolio__card-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .portfolio__card {
+    max-width: 95vw;
+    min-width: 0;
+  }
+}
+
+/* Skills card style */
+.skills__card-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.skills__card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(80, 80, 120, 0.08);
+  border: 1px solid #ececec;
+  max-width: 320px;
+  min-width: 220px;
+  padding: 1.3rem 1.1rem 1.1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.skills__card:hover {
+  box-shadow: 0 8px 32px rgba(80, 80, 120, 0.16);
+  transform: translateY(-4px) scale(1.025);
+}
+
+.skills__card-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--first-color);
+}
+
+.skills__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skills__badge {
+  background: var(--first-color-lighter);
+  color: var(--first-color);
+  font-size: 0.85rem;
+  border-radius: 0.7rem;
+  padding: 0.2rem 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.2rem;
+}
+
+@media (max-width: 800px) {
+  .skills__card-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .skills__card {
+    max-width: 95vw;
+    min-width: 0;
+  }
+}
+
+/* Section divider for Apple-like feel */
+.section + .section {
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+
+@media (max-width: 600px) {
+  .section + .section {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+  }
+}
+
+/* About section - Sunwoo Kang inspired layout */
+.about__container--row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+.about__img-col {
+  flex: 0 0 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.about__img {
+  width: 240px;
+  height: auto;
+  border-radius: 1.2rem;
+  background: #fff;
+  box-shadow: 0 4px 24px rgba(80, 80, 120, 0.08);
+  padding: 1.2rem;
+}
+.about__text-col {
+  flex: 1 1 340px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 260px;
+}
+.about__headline {
+  font-size: 2.1rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+  color: var(--title-color);
+}
+.about__headline-sub {
+  font-size: 1.1rem;
+  color: var(--first-color);
+  margin-bottom: 1.1rem;
+  font-weight: 500;
+}
+.about__description {
+  font-size: 1.08rem;
+  color: var(--text-color);
+  margin-bottom: 1.2rem;
+  line-height: 1.7;
+}
+.about__badges-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+.about__badge {
+  background: var(--first-color-lighter);
+  color: var(--first-color);
+  font-size: 1rem;
+  border-radius: 0.7rem;
+  padding: 0.3rem 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  box-shadow: 0 2px 8px rgba(80, 80, 120, 0.06);
+}
+.about__buttons {
+  margin-top: 0.5rem;
+}
+@media (max-width: 900px) {
+  .about__container--row {
+    flex-direction: column;
+    gap: 2.2rem;
+    align-items: stretch;
+  }
+  .about__img-col, .about__text-col {
+    min-width: 0;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .about__img {
+    margin: 0 auto;
+  }
+  .about__text-col {
+    align-items: center;
+    text-align: center;
+  }
+  .about__badges-row {
+    justify-content: center;
+  }
+}
+
+/* Scroll-driven background animation */
+body {
+  background: linear-gradient(135deg, 
+    #667eea 0%,
+    #764ba2 50%, 
+    #667eea 100%);
+  background-size: 400% 400%;
+  /* Remove time-based animation */
+}
+
+/* Dark theme background */
+body.dark-theme {
+  background: linear-gradient(135deg, 
+    #1a1a2e 0%,
+    #16213e 25%,
+    #0f3460 50%,
+    #16213e 75%,
+    #1a1a2e 100%) !important;
+  background-size: 400% 400% !important;
+}
+
+/* Smooth scroll-driven background position with mouse influence */
+body.scroll-driven {
+  background-position: 
+    calc(var(--scroll-progress, 0%) + (var(--mouse-x, 50%) - 50%) * 0.1) 
+    calc(50% + (var(--mouse-y, 50%) - 50%) * 0.05);
+  transition: background-position 0.05s ease-out;
+  will-change: background-position; /* Optimize for animations */
+}
+
+/* Section-specific overlay colors that blend with scroll */
+.section {
+  position: relative;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  margin: 0;
+  transition: all 0.4s ease;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(255,255,255,0.08) 0%,
+    rgba(255,255,255,0.04) 50%,
+    rgba(255,255,255,0.08) 100%);
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.home.section::before {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.04), rgba(118, 75, 162, 0.04));
+}
+
+.about.section::before {
+  background: linear-gradient(135deg, rgba(118, 75, 162, 0.04), rgba(102, 126, 234, 0.04));
+}
+
+.skills.section::before {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.04), rgba(118, 75, 162, 0.04));
+}
+
+.qualification.section::before {
+  background: linear-gradient(135deg, rgba(118, 75, 162, 0.04), rgba(102, 126, 234, 0.04));
+}
+
+.portfolio.section::before {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.04), rgba(118, 75, 162, 0.04));
+}
+
+.contact.section::before {
+  background: linear-gradient(135deg, rgba(118, 75, 162, 0.04), rgba(102, 126, 234, 0.04));
+}
+
+/* Clean Projects timeline design */
+.portfolio__timeline {
+  position: relative;
+  margin: 40px auto 0 auto;
+  padding-left: 32px;
+  max-width: 700px;
+}
+
+.portfolio__timeline:before {
+  content: '';
+  position: absolute;
+  left: 18px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #8f6ed5, #6a82fb);
+  border-radius: 2px;
+}
+
+.portfolio__timeline-item {
+  position: relative;
+  margin-bottom: 48px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.portfolio__timeline-dot {
+  position: absolute;
+  left: 10px;
+  top: 8px;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #8f6ed5, #6a82fb);
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px rgba(143,110,213,0.15);
+  z-index: 1;
+}
+
+.portfolio__timeline-content {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(143,110,213,0.07);
+  padding: 20px 28px;
+  margin-left: 48px;
+  flex: 1;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.portfolio__timeline-content .portfolio__title {
+  margin-top: 0;
+  margin-bottom: 4px;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.portfolio__timeline-content .portfolio__date {
+  font-size: 0.95rem;
+  color: #8f6ed5;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.portfolio__timeline-content .portfolio__description {
+  margin-bottom: 10px;
+}
+
+.portfolio__timeline-content .portfolio__badges {
+  margin-top: 4px;
+}
+
+@media (max-width: 600px) {
+  .portfolio__timeline {
+    padding-left: 0;
+  }
+  .portfolio__timeline-content {
+    margin-left: 36px;
+    padding: 16px 12px;
+  }
+  .portfolio__timeline-dot {
+    left: -2px;
+  }
+}
+
+/* Dark Mode Notification/Indicator */
+.theme-indicator {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(187, 134, 252, 0.9);
+  color: #121212;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transform: translateX(120%);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(187, 134, 252, 0.3);
+  box-shadow: 0 4px 20px rgba(187, 134, 252, 0.2);
+}
+
+.theme-indicator.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.theme-indicator.dark-mode {
+  background: rgba(187, 134, 252, 0.9);
+  color: #121212;
+}
+
+.theme-indicator.light-mode {
+  background: rgba(255, 255, 255, 0.9);
+  color: #667eea;
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.1);
+}
+
+/* Subtle dark mode indicator in corner */
+body.dark-theme::before {
+  content: "🌙 Dark Mode";
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(30, 30, 30, 0.8);
+  color: #bb86fc;
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(187, 134, 252, 0.2);
+  z-index: 999;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
 }
