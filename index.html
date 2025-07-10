@@ -3,11 +3,90 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Meta Tags -->
+    <title>Wenjie Zhang - NYU Computer Science & Math Student | Portfolio</title>
+    <meta name="description" content="Wenjie Zhang is a Computer Science and Mathematics student at NYU with expertise in Python, Machine Learning, Computer Vision, and web development. View my portfolio and projects." />
+    <meta name="keywords" content="Wenjie Zhang, NYU, Computer Science, Mathematics, Python, Machine Learning, Computer Vision, Web Development, Portfolio, Student" />
+    <meta name="author" content="Wenjie Zhang" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://zhangwenjiewilson.github.io/" />
+    
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Wenjie Zhang - NYU Computer Science & Math Student | Portfolio" />
+    <meta property="og:description" content="Computer Science and Mathematics student at NYU with expertise in Python, Machine Learning, and web development. View my portfolio and projects." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://zhangwenjiewilson.github.io/" />
+    <meta property="og:image" content="https://zhangwenjiewilson.github.io/assets/img/about.png" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Wenjie Zhang Portfolio" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Wenjie Zhang - NYU Computer Science & Math Student" />
+    <meta name="twitter:description" content="Computer Science and Mathematics student at NYU. View my portfolio and projects." />
+    <meta name="twitter:image" content="https://zhangwenjiewilson.github.io/assets/img/about.png" />
+    
+    <!-- Additional SEO Tags -->
+    <meta name="theme-color" content="#8f6ed5" />
+    <meta name="msapplication-TileColor" content="#8f6ed5" />
+    
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
     <!-- Unicons -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css" />
     <link rel="stylesheet" href="assets/css/styles.css" />
-    <title>Wenjie Zhang | 张闻杰</title>
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Wenjie Zhang",
+      "givenName": "Wenjie",
+      "familyName": "Zhang",
+      "alternateName": "张闻杰",
+      "jobTitle": "Computer Science and Mathematics Student",
+      "worksFor": {
+        "@type": "EducationalOrganization",
+        "name": "New York University",
+        "url": "https://www.nyu.edu"
+      },
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "New York University"
+      },
+      "email": "zhangwenjiewilson@gmail.com",
+      "telephone": "+1-347-992-1908",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "New York",
+        "addressRegion": "NY",
+        "addressCountry": "US"
+      },
+             "url": "https://zhangwenjiewilson.github.io",
+       "sameAs": [
+         "mailto:zhangwenjiewilson@gmail.com"
+       ],
+      "knowsAbout": [
+        "Python Programming",
+        "Java Programming",
+        "Machine Learning",
+        "Computer Vision",
+        "Web Development",
+        "Mathematics",
+        "Data Structures",
+        "Algorithms"
+      ],
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Student",
+        "occupationLocation": {
+          "@type": "Place",
+          "name": "New York University"
+        }
+      }
+    }
+    </script>
   </head>
   <body>
     <!-- HEADER -->
@@ -83,15 +162,15 @@
         </div>
       </section>
       <!-- ABOUT -->
-      <section class="about section" id="about">
-        <h2 class="section__title">About Me</h2>
+      <section class="about section" id="about" aria-labelledby="about-title">
+        <h2 id="about-title" class="section__title">About Me</h2>
         <span class="section__subtitle">Introduction</span>
         <div class="about__container about__container--row container">
           <div class="about__img-col">
-            <img src="assets/img/snowflake01.png" alt="Snowflake Logo" class="about__img about__img-snowflake" />
+            <img src="assets/img/snowflake01.png" alt="Snowflake logo representing data engineering and analytics expertise" class="about__img about__img-snowflake" />
             <div class="about__copyright">Snowflake logo © Snowflake Inc.</div>
           </div>
-          <div class="about__text-col">
+          <article class="about__text-col">
             <h3 class="about__headline">Wenjie Zhang</h3>
             <div class="about__headline-sub">NYU &bull; B.S. Math & Computer Science &bull; 2027</div>
             <p class="about__description">Chinese Peasant in NYU</p>
@@ -101,57 +180,57 @@
               <span class="about__badge">Cantonese</span>
             </div>
             <div class="about__buttons">
-              <a download href="single_page_with_title.pdf" class="button button--flex">Download<i class="uil uil-download-alt button__icon"></i></a>
+              <a download href="single_page_with_title.pdf" class="button button--flex" aria-label="Download Wenjie Zhang's resume PDF">Download<i class="uil uil-download-alt button__icon"></i></a>
             </div>
-          </div>
+          </article>
         </div>
       </section>
       <!-- SKILLS -->
-      <section class="skills section" id="skills">
-        <h2 class="section__title">Skills</h2>
+      <section class="skills section" id="skills" aria-labelledby="skills-title">
+        <h2 id="skills-title" class="section__title">Skills</h2>
         <span class="section__subtitle">Technical & Language Skills</span>
         <div class="skills__container container">
           <div class="skills__card-list">
-            <div class="skills__card">
+            <article class="skills__card">
               <h3 class="skills__card-title">Programming</h3>
-              <div class="skills__badges">
-                <span class="skills__badge">Python</span>
-                <span class="skills__badge">Java</span>
-                <span class="skills__badge">HTML/CSS</span>
-                <span class="skills__badge">SQL</span>
-                <span class="skills__badge">C</span>
-                <span class="skills__badge">Assembly</span>
+              <div class="skills__badges" role="list" aria-label="Programming languages">
+                <span class="skills__badge" role="listitem">Python</span>
+                <span class="skills__badge" role="listitem">Java</span>
+                <span class="skills__badge" role="listitem">HTML/CSS</span>
+                <span class="skills__badge" role="listitem">SQL</span>
+                <span class="skills__badge" role="listitem">C</span>
+                <span class="skills__badge" role="listitem">Assembly</span>
               </div>
-            </div>
-            <div class="skills__card">
+            </article>
+            <article class="skills__card">
               <h3 class="skills__card-title">Languages</h3>
-              <div class="skills__badges">
-                <span class="skills__badge">Native Mandarin</span>
-                <span class="skills__badge">English</span>
+              <div class="skills__badges" role="list" aria-label="Spoken languages">
+                <span class="skills__badge" role="listitem">Native Mandarin</span>
+                <span class="skills__badge" role="listitem">English</span>
               </div>
-            </div>
-            <div class="skills__card">
+            </article>
+            <article class="skills__card">
               <h3 class="skills__card-title">Other</h3>
-              <div class="skills__badges">
-                <span class="skills__badge">Machine Learning</span>
-                <span class="skills__badge">Computer Vision (Yolo, RCNN, Faster RCNN ......)</span>
+              <div class="skills__badges" role="list" aria-label="Technical specializations">
+                <span class="skills__badge" role="listitem">Machine Learning</span>
+                <span class="skills__badge" role="listitem">Computer Vision (Yolo, RCNN, Faster RCNN ......)</span>
               </div>
-            </div>
+            </article>
           </div>
         </div>
       </section>
       <!-- EDUCATION -->
-      <section class="qualification section" id="education">
-        <h2 class="section__title">Education</h2>
+      <section class="qualification section" id="education" aria-labelledby="education-title">
+        <h2 id="education-title" class="section__title">Education</h2>
         <span class="section__subtitle">My Academic Journey</span>
         <div class="qualification__container container">
-          <div class="qualification__card">
+          <article class="qualification__card">
             <h3 class="qualification__title">New York University</h3>
             <span class="qualification__subtitle">B.S. in Math & Computer Science</span>
-            <div class="qualification__calendar"><i class="uil uil-calendar-alt"></i> Expected Graduation: Spring 2027</div>
+            <div class="qualification__calendar" aria-label="Expected graduation date"><i class="uil uil-calendar-alt"></i> Expected Graduation: Spring 2027</div>
             <div class="qualification__courses">
               <strong>Courses:</strong>
-              <ul class="qualification__course-list">
+              <ul class="qualification__course-list" role="list" aria-label="Completed and current courses">
                 <li>Data Structures</li>
                 <li>Linear Algebra</li>
                 <li>Discrete Math</li>
@@ -165,78 +244,100 @@
                 <li>Algorithm</li>
               </ul>
             </div>
-          </div>
+          </article>
         </div>
       </section>
       <!-- PROJECTS -->
-      <section class="portfolio section" id="projects">
-        <h2 class="section__title">Projects</h2>
+      <section class="portfolio section" id="projects" aria-labelledby="projects-title">
+        <h2 id="projects-title" class="section__title">Projects</h2>
         <span class="section__subtitle">Selected Work</span>
         <div class="portfolio__timeline container">
-          <div class="portfolio__timeline-item">
+          <article class="portfolio__timeline-item">
             <div class="portfolio__timeline-dot"></div>
             <div class="portfolio__timeline-content">
               <h3 class="portfolio__title">for test</h3>
               <span class="portfolio__date">2023</span>
               <p class="portfolio__description">for test</p>
-              <div class="portfolio__badges">
-                <span class="portfolio__badge">Python</span>
-                <span class="portfolio__badge">OpenCV</span>
-                <span class="portfolio__badge">Tkinter</span>
-                <span class="portfolio__badge">PyAutoGUI</span>
+              <div class="portfolio__badges" role="list" aria-label="Technologies used">
+                <span class="portfolio__badge" role="listitem">Python</span>
+                <span class="portfolio__badge" role="listitem">OpenCV</span>
+                <span class="portfolio__badge" role="listitem">Tkinter</span>
+                <span class="portfolio__badge" role="listitem">PyAutoGUI</span>
               </div>
             </div>
-          </div>
-          <div class="portfolio__timeline-item">
+          </article>
+          <article class="portfolio__timeline-item">
             <div class="portfolio__timeline-dot"></div>
             <div class="portfolio__timeline-content">
               <h3 class="portfolio__title">for test</h3>
               <span class="portfolio__date">2022</span>
               <p class="portfolio__description">for test</p>
-              <div class="portfolio__badges">
-                <span class="portfolio__badge">Flask</span>
-                <span class="portfolio__badge">SQLAlchemy</span>
-                <span class="portfolio__badge">Bootstrap</span>
+              <div class="portfolio__badges" role="list" aria-label="Technologies used">
+                <span class="portfolio__badge" role="listitem">Flask</span>
+                <span class="portfolio__badge" role="listitem">SQLAlchemy</span>
+                <span class="portfolio__badge" role="listitem">Bootstrap</span>
               </div>
             </div>
-          </div>
-          <div class="portfolio__timeline-item">
+          </article>
+          <article class="portfolio__timeline-item">
             <div class="portfolio__timeline-dot"></div>
             <div class="portfolio__timeline-content">
               <h3 class="portfolio__title">for test</h3>
               <span class="portfolio__date">2024</span>
               <p class="portfolio__description">for test</p>
-              <div class="portfolio__badges">
-                <span class="portfolio__badge">Three.js</span>
-                <span class="portfolio__badge">Blender</span>
-                <span class="portfolio__badge">WebGL</span>
+              <div class="portfolio__badges" role="list" aria-label="Technologies used">
+                <span class="portfolio__badge" role="listitem">Three.js</span>
+                <span class="portfolio__badge" role="listitem">Blender</span>
+                <span class="portfolio__badge" role="listitem">WebGL</span>
               </div>
             </div>
-          </div>
-          <div class="portfolio__timeline-item">
+          </article>
+          <article class="portfolio__timeline-item">
             <div class="portfolio__timeline-dot"></div>
             <div class="portfolio__timeline-content">
               <h3 class="portfolio__title">for test</h3>
               <span class="portfolio__date">2023</span>
               <p class="portfolio__description">for test</p>
-              <div class="portfolio__badges">
-                <span class="portfolio__badge">HTML</span>
-                <span class="portfolio__badge">CSS</span>
-                <span class="portfolio__badge">JavaScript</span>
+              <div class="portfolio__badges" role="list" aria-label="Technologies used">
+                <span class="portfolio__badge" role="listitem">HTML</span>
+                <span class="portfolio__badge" role="listitem">CSS</span>
+                <span class="portfolio__badge" role="listitem">JavaScript</span>
               </div>
             </div>
-          </div>
+          </article>
         </div>
       </section>
       <!-- CONTACT -->
-      <section class="contact section" id="contact">
-        <h2 class="section__title">Contact Me</h2>
+      <section class="contact section" id="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title" class="section__title">Contact Me</h2>
         <span class="section__subtitle">Get in touch</span>
         <div class="contact__container container grid">
           <div>
-            <div class="contact__information"><i class="uil uil-phone-alt contact__icon"></i><div><h3 class="contact__title">Call me</h3><span class="contact__subtitle">(347) 992-1908</span></div></div>
-            <div class="contact__information"><i class="uil uil-envelope contact__icon"></i><div><h3 class="contact__title">E-mail</h3><span class="contact__subtitle">zhangwenjiewilson@gmail.com</span></div></div>
-            <div class="contact__information"><i class="uil uil-map-marker contact__icon"></i><div><h3 class="contact__title">Location</h3><span class="contact__subtitle">New York, NY</span></div></div>
+            <div class="contact__information" itemscope itemtype="https://schema.org/PostalAddress">
+              <i class="uil uil-phone-alt contact__icon" aria-hidden="true"></i>
+                             <div>
+                 <h3 class="contact__title">Call me</h3>
+                 <span class="contact__subtitle" itemprop="telephone">
+                   <a href="tel:+13479921908" aria-label="Call Wenjie Zhang">(347) 992-1908</a>
+                 </span>
+               </div>
+             </div>
+             <div class="contact__information">
+               <i class="uil uil-envelope contact__icon" aria-hidden="true"></i>
+               <div>
+                 <h3 class="contact__title">E-mail</h3>
+                 <span class="contact__subtitle" itemprop="email">
+                   <a href="mailto:zhangwenjiewilson@gmail.com" aria-label="Send email to Wenjie Zhang">zhangwenjiewilson@gmail.com</a>
+                 </span>
+               </div>
+             </div>
+             <div class="contact__information">
+               <i class="uil uil-map-marker contact__icon" aria-hidden="true"></i>
+               <div>
+                 <h3 class="contact__title">Location</h3>
+                 <span class="contact__subtitle" itemprop="addressLocality">New York, NY</span>
+               </div>
+            </div>
           </div>
         </div>
       </section>

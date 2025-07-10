@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Disallow potentially sensitive files
+Disallow: /assets/pdf/
+Disallow: /*.pdf$
+
+# Sitemap location
+Sitemap: https://zhangwenjiewilson.github.io/sitemap.xml
+
+# Crawl delay to be respectful to server resources
+Crawl-delay: 1 

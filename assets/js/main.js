@@ -305,7 +305,7 @@ window.addEventListener('scroll', () => {
 updateScrollDrivenAnimations();
 
 // ==================== SCROLL OFFSET FOR NAVIGATION ====================
-// Position sections perfectly for peak white visibility when clicking nav links
+// Position sections so subtitles appear at the top when clicking nav links
 const header = document.getElementById('header');
 document.querySelectorAll('.nav__link[href^="#"]').forEach(link => {
   link.addEventListener('click', function(e) {
@@ -314,11 +314,19 @@ document.querySelectorAll('.nav__link[href^="#"]').forEach(link => {
       e.preventDefault();
       const target = document.querySelector(hash);
       const headerHeight = header ? header.offsetHeight : 0;
-      const viewportHeight = window.innerHeight;
       const targetTop = target.getBoundingClientRect().top + window.pageYOffset;
       
-      // Position section at optimal white visibility (center of viewport)
-      const optimalPosition = targetTop - (viewportHeight / 2) + (target.offsetHeight / 4);
+      // Find the subtitle within the target section
+      const subtitle = target.querySelector('.section__subtitle');
+      let subtitleOffset = 0;
+      
+      if (subtitle) {
+        // Get subtitle position relative to section start
+        subtitleOffset = subtitle.offsetTop;
+      }
+      
+      // Position so subtitle appears at top of viewport (accounting for header)
+      const optimalPosition = targetTop + subtitleOffset - headerHeight - 20; // 20px padding from top
       
       window.scrollTo({
         top: optimalPosition,
